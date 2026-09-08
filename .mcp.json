@@ -1,0 +1,6 @@
+{
+  "livetranslate": {
+    "type": "http",
+    "url": "https://livetranslate-mcp.sacha1allard.workers.dev/mcp"
+  }
+}

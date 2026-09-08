@@ -1,0 +1,17 @@
+{
+  "name": "livetranslate",
+  "version": "1.0.0",
+  "description": "Transcribe private audio with speaker labels and timestamps using an existing LiveTranslate Cloud subscription.",
+  "author": {
+    "name": "LiveTranslate",
+    "url": "https://livetranslate-legal.sacha1allard.workers.dev"
+  },
+  "homepage": "https://livetranslate-legal.sacha1allard.workers.dev/support",
+  "repository": "https://github.com/sachaapp/livetranslate-claude-plugin",
+  "keywords": [
+    "audio",
+    "meeting-notes",
+    "speech-to-text",
+    "transcription"
+  ]
+}
