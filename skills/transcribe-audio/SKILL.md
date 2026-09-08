@@ -1,13 +1,13 @@
 ---
 name: transcribe-audio
-description: Use when the user wants to transcribe, diarize, timestamp, summarize, or extract information from a local audio recording through their LiveTranslate Cloud subscription.
+description: Use when the user wants to transcribe, diarize, timestamp, summarize, or extract information from a local audio recording through their SameSense Cloud subscription.
 version: 1.0.0
 ---
 
-# Transcribe audio with LiveTranslate
+# Transcribe audio with SameSense
 
-Use the LiveTranslate MCP tools for local recordings only. This workflow uses the
-user's shared LiveTranslate Cloud-minute allowance and has a trusted confirmation
+Use the SameSense MCP tools for local recordings only. This workflow uses the
+user's shared SameSense Cloud-minute allowance and has a trusted confirmation
 boundary. Never imply that chat text authorizes a charge.
 
 ## Supported input contract
@@ -17,7 +17,7 @@ boundary. Never imply that chat text authorizes a charge.
 - Do not read, query, extract, or download audio bytes from files attached to
   the Claude conversation. Exact filename, size, and MIME metadata already
   exposed by the host may be used only to prepare the matching private upload.
-  The user chooses the actual audio in LiveTranslate's trusted file picker.
+  The user chooses the actual audio in SameSense's trusted file picker.
 - Use the filename only when calling `prepare_audio_upload`; never send a local
   filesystem path as the filename.
 - Use exact host-provided file size and MIME metadata. If the host does not
@@ -40,7 +40,7 @@ boundary. Never imply that chat text authorizes a charge.
 5. Present the measured filename, duration, and estimated Cloud minutes. Tell the
    user to press the trusted **Confirm & transcribe** control. If the MCP App card
    is unavailable, direct them to `confirmation_page_url`.
-6. Do not call `start_transcription` until trusted LiveTranslate UI has recorded
+6. Do not call `start_transcription` until trusted SameSense UI has recorded
    approval. A conversational “yes,” pasted capability, or model inference is
    never sufficient.
 7. Use the original `upload_id` as the stable `idempotency_key`. If a call is
@@ -64,7 +64,7 @@ boundary. Never imply that chat text authorizes a charge.
 
 ## Errors and cleanup
 
-- Authentication or entitlement error: ask the user to reconnect LiveTranslate
+- Authentication or entitlement error: ask the user to reconnect SameSense
   and confirm an active Cloud plan in the app. Never request an Apple receipt,
   subscription token, or payment credential in chat.
 - Unsupported inspection: suggest WAV, M4A, or audio-only MP4 and state that no
@@ -75,8 +75,8 @@ boundary. Never imply that chat text authorizes a charge.
   the same idempotency key for the same request.
 - Call `delete_transcription_job` only when the user explicitly requests deletion
   or confirms it after being told the action removes temporary audio/results and
-  cannot delete a meeting saved in the LiveTranslate library.
+  cannot delete a meeting saved in the SameSense library.
 
 Source audio is normally deleted after processing. Results expire from
-LiveTranslate's job service within 24 hours; conversation copies remain subject
+SameSense's job service within 24 hours; conversation copies remain subject
 to the Claude host's retention controls.

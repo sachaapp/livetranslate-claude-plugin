@@ -1,9 +1,10 @@
 {
   "name": "livetranslate",
+  "displayName": "SameSense",
   "version": "1.0.0",
-  "description": "Transcribe private audio with speaker labels and timestamps using an existing LiveTranslate Cloud subscription.",
+  "description": "Different words. Same sense.",
   "author": {
-    "name": "LiveTranslate",
+    "name": "SameSense",
     "url": "https://livetranslate-legal.sacha1allard.workers.dev"
   },
   "homepage": "https://livetranslate-legal.sacha1allard.workers.dev/support",
